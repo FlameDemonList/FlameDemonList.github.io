@@ -1,8 +1,8 @@
 {
   "mods": ["#@:RipFlame29!*("],
   "levels": [
-    {"id":"l1","name":"Society","creator":"Neomarbilan","verifier":"Wpoffoff","videoUrl":"","rank":1,"minPercent":100},
-    {"id":"l2","name":"Thinking Space II","creator":"CairoX","verifier":"Zoink","videoUrl":"","rank":2,"minPercent":100},
+    {"id":"l1","name":"Society","creator":"Neomarbilan","verifier":"Wpoffoff","https://www.youtube.com/watch?v=3CoEaH1CM7o":"","rank":1,"minPercent":100},
+    {"id":"l2","name":"Thinking Space II","creator":"CairoX","verifier":"Zoink","https://www.youtube.com/watch?v=CELNmHwln_c":"","rank":2,"minPercent":100},
     {"id":"l3","name":"FlameWall","creator":"UNarwall","verifier":"CuatrocientosYT :((((((((((((","videoUrl":"","rank":3,"minPercent":100}
   ],
   "records": [],
