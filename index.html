@@ -46,7 +46,7 @@
   ::-webkit-scrollbar-track{background:var(--bg2);}
   ::-webkit-scrollbar-thumb{background:var(--line2);border-radius:4px;}
 
-  /* Header */
+  
   header{
     position:sticky;top:0;z-index:50;
     background:rgba(10,10,13,0.9);
@@ -281,9 +281,7 @@ function saveNote(){
 Copy the JSON below into data.json in your GitHub repo and commit, so everyone sees it.`;
 }
 
-/* ============================================================
-   RENDER ROOT
-   ============================================================ */
+
 function render(){
   document.querySelectorAll('#nav button').forEach(b=>{
     b.classList.toggle('active', b.dataset.view === currentView);
@@ -303,9 +301,7 @@ function render(){
   attachHandlers();
 }
 
-/* ============================================================
-   DEMONLIST VIEW
-   ============================================================ */
+
 function renderList(){
   const sorted = [...DATA.levels].sort((a,b)=>a.rank-b.rank);
   const main = sorted.filter(l=>l.rank<=150);
@@ -361,9 +357,7 @@ function openLevel(id){
   `);
 }
 
-/* ============================================================
-   STATS VIEW
-   ============================================================ */
+
 function renderStats(){
   const playerTotals = {};
   DATA.records.filter(r=>r.status==='approved').forEach(r=>{
