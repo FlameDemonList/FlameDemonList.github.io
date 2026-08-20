@@ -1,0 +1,10 @@
+{
+  "mods": ["changeme123"],
+  "levels": [
+    {"id":"l1","name":"Tartarus","creator":"Riot","verifier":"Zoink","videoUrl":"","rank":1,"minPercent":100},
+    {"id":"l2","name":"Acheron","creator":"Riot","verifier":"Riot","videoUrl":"","rank":2,"minPercent":100},
+    {"id":"l3","name":"Slaughterhouse","creator":"KrmaL","verifier":"Slypp","videoUrl":"","rank":151,"minPercent":100}
+  ],
+  "records": [],
+  "levelSubmissions": []
+}
