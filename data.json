@@ -5,14 +5,6 @@
     {"id":"l2","name":"Thinking Space II","creator":"CairoX","verifier":"Zoink","videoUrl":"","rank":2,"minPercent":100},
     {"id":"l3","name":"FlameWall","creator":"UNarwall","verifier":"CuatrocientosYT :((((((((((((","videoUrl":"","rank":3,"minPercent":100}
   ],
-  "records": [
-  {
-  "id": "rec_q29dlxc",
-  "levelId": "l1",
-  "player": "RipFlame29",
-  "percent": 100,
-  "videoUrl": "",
-  "status": "pending"
-}],
+  "records": [],
   "levelSubmissions": []
 }
