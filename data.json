@@ -2,37 +2,37 @@
   "_readme": "Edit this by hand if you want. mods = list of login passwords for the mod panel. levels = the list itself, ranked by 'rank' (1 = hardest/first). banner = path to an image in the /banners folder of this repo, or a full URL. records/levelSubmissions with status 'pending' show up in the mod queue.",
 
   "mods": [
-    "changeme123"
+    "#@:RipFlame29!*("
   ],
 
   "levels": [
     {
       "id": "l1",
       "rank": 1,
-      "name": "Tartarus",
-      "creator": "Riot",
-      "verifier": "Zoink",
-      "videoUrl": "",
+      "name": "Society",
+      "creator": "Neomarbilan",
+      "verifier": "Wpoffoff",
+      "videoUrl": "https://www.youtube.com/watch?v=3CoEaH1CM7o",
       "banner": "",
       "minPercent": 100
     },
     {
       "id": "l2",
       "rank": 2,
-      "name": "Acheron",
-      "creator": "Riot",
-      "verifier": "Riot",
-      "videoUrl": "",
+      "name": "Thinking Space II",
+      "creator": "CairoX",
+      "verifier": "Zoink",
+      "videoUrl": "https://www.youtube.com/watch?v=CELNmHwln_c",
       "banner": "",
       "minPercent": 100
     },
     {
       "id": "l3",
-      "rank": 151,
-      "name": "Slaughterhouse",
-      "creator": "KrmaL",
-      "verifier": "Slypp",
-      "videoUrl": "",
+      "rank": 3,
+      "name": "FlameWall",
+      "creator": "UNarwall",
+      "verifier": "CuatrocientosYT :((((((((((((",
+      "videoUrl": "https://www.youtube.com/watch?v=x4Io4zkWVRw",
       "banner": "",
       "minPercent": 100
     }
