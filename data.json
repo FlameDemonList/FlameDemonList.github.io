@@ -1,10 +1,44 @@
 {
-  "mods": ["#@:RipFlame29!*("],
-  "levels": [
-    {"id":"l1","name":"Society","creator":"Neomarbilan","verifier":"Wpoffoff","https://www.youtube.com/watch?v=3CoEaH1CM7o":"","rank":1,"minPercent":100},
-    {"id":"l2","name":"Thinking Space II","creator":"CairoX","verifier":"Zoink","https://www.youtube.com/watch?v=CELNmHwln_c":"","rank":2,"minPercent":100},
-    {"id":"l3","name":"FlameWall","creator":"UNarwall","verifier":"CuatrocientosYT :((((((((((((","https://www.youtube.com/watch?v=x4Io4zkWVRw":"","rank":3,"minPercent":100}
+  "_readme": "Edit this by hand if you want. mods = list of login passwords for the mod panel. levels = the list itself, ranked by 'rank' (1 = hardest/first). banner = path to an image in the /banners folder of this repo, or a full URL. records/levelSubmissions with status 'pending' show up in the mod queue.",
+
+  "mods": [
+    "changeme123"
   ],
+
+  "levels": [
+    {
+      "id": "l1",
+      "rank": 1,
+      "name": "Tartarus",
+      "creator": "Riot",
+      "verifier": "Zoink",
+      "videoUrl": "",
+      "banner": "",
+      "minPercent": 100
+    },
+    {
+      "id": "l2",
+      "rank": 2,
+      "name": "Acheron",
+      "creator": "Riot",
+      "verifier": "Riot",
+      "videoUrl": "",
+      "banner": "",
+      "minPercent": 100
+    },
+    {
+      "id": "l3",
+      "rank": 151,
+      "name": "Slaughterhouse",
+      "creator": "KrmaL",
+      "verifier": "Slypp",
+      "videoUrl": "",
+      "banner": "",
+      "minPercent": 100
+    }
+  ],
+
   "records": [],
+
   "levelSubmissions": []
 }
