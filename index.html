@@ -6,188 +6,216 @@
 <title>Flamelist</title>
 <style>
   :root{
-    --bg:#0a0a0d;
-    --bg2:#111116;
-    --card:#16161c;
-    --card2:#1c1c24;
-    --line:#2a2a34;
-    --line2:#3a3a48;
-    --text:#e8e8ec;
-    --sub:#8f8fa0;
-    --mut:#5a5a68;
-    --flame:#ff5a2e;
-    --flame2:#ff8a3d;
-    --flame-dim:#3a2015;
-    --gold:#ffcf4d;
-    --ext:#6a5acd;
+    --bg:#0b0a0e;
+    --bg2:#131218;
+    --card:#17151d;
+    --card2:#1d1a24;
+    --line:#2b2733;
+    --line2:#3d3646;
+    --text:#eeecf1;
+    --sub:#9891a3;
+    --mut:#615a6c;
+    --flame:#ff5a36;
+    --flame2:#ff8a5c;
+    --flame-dim:#3a1f16;
+    --gold:#ffcf5c;
+    --ext:#8a6bf0;
+    --ext-dim:#241c3a;
     --good:#3ecf8e;
+    --good-dim:#0d2318;
     --bad:#ff4d5e;
+    --bad-dim:#2a0d10;
     --half:#ffb84d;
+    --half-dim:#2a1c05;
     --font-d:'Rajdhani',sans-serif;
     --font-b:'Inter',sans-serif;
     --font-m:'JetBrains Mono',monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  @font-face{font-family:'Rajdhani';src:local('Rajdhani');}
   body{
     background:var(--bg);
     color:var(--text);
     font-family:var(--font-b);
     min-height:100vh;
     background-image:
-      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(255,90,46,0.10), transparent),
-      radial-gradient(ellipse 700px 500px at 90% 10%, rgba(106,90,205,0.08), transparent);
+      radial-gradient(ellipse 1000px 600px at 10% -15%, rgba(255,90,54,0.09), transparent),
+      radial-gradient(ellipse 800px 500px at 95% 5%, rgba(138,107,240,0.07), transparent);
   }
   a{color:inherit;text-decoration:none;}
   ::selection{background:var(--flame);color:#000;}
-
-  /* Scrollbar */
   ::-webkit-scrollbar{width:10px;height:10px;}
   ::-webkit-scrollbar-track{background:var(--bg2);}
   ::-webkit-scrollbar-thumb{background:var(--line2);border-radius:4px;}
+  button{font-family:inherit;}
 
-  
   header{
     position:sticky;top:0;z-index:50;
-    background:rgba(10,10,13,0.9);
+    background:rgba(11,10,14,0.92);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
   .header-inner{
-    max-width:1200px;margin:0 auto;padding:14px 24px;
-    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    max-width:1180px;margin:0 auto;padding:16px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
   }
   .logo{
-    font-family:var(--font-d);font-weight:700;font-size:26px;letter-spacing:1px;
-    display:flex;align-items:center;gap:8px;
+    font-family:var(--font-d);font-weight:700;font-size:25px;letter-spacing:0.5px;
+    display:flex;align-items:center;gap:9px;
   }
-  .logo .spark{color:var(--flame);}
+  .logo .mark{
+    width:22px;height:22px;background:var(--flame);
+    clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display:inline-block;
+  }
   nav{display:flex;gap:4px;flex-wrap:wrap;}
   nav button{
     background:transparent;border:1px solid transparent;color:var(--sub);
-    font-family:var(--font-d);font-weight:600;font-size:15px;letter-spacing:0.5px;
-    padding:8px 14px;border-radius:6px;cursor:pointer;transition:all .15s;
+    font-family:var(--font-d);font-weight:600;font-size:15px;letter-spacing:0.3px;
+    padding:8px 14px;border-radius:7px;cursor:pointer;transition:all .15s;
   }
   nav button:hover{color:var(--text);background:var(--card2);}
-  nav button.active{color:var(--flame2);background:var(--flame-dim);border-color:#4a2818;}
-  .mod-badge{
+  nav button.active{color:var(--flame2);background:var(--flame-dim);}
+  .mod-pill{
     font-family:var(--font-m);font-size:11px;color:var(--gold);
-    border:1px solid #4a3d1a;background:#1f1a0a;padding:4px 10px;border-radius:5px;
-    cursor:pointer;
+    border:1px solid #4a3d1a;background:#1f1a0a;padding:5px 11px;border-radius:20px;
   }
+  .mod-pill a{color:var(--bad);margin-left:8px;}
 
-  main{max-width:1200px;margin:0 auto;padding:32px 24px 80px;}
+  main{max-width:1180px;margin:0 auto;padding:36px 24px 90px;}
 
-  /* Section headers */
-  .section-title{
-    font-family:var(--font-d);font-size:34px;font-weight:700;letter-spacing:0.5px;
-    margin-bottom:6px;
-  }
-  .section-sub{color:var(--sub);font-size:14px;margin-bottom:28px;max-width:640px;line-height:1.6;}
+  .section-title{font-family:var(--font-d);font-size:36px;font-weight:700;letter-spacing:0.3px;margin-bottom:6px;}
+  .section-sub{color:var(--sub);font-size:14.5px;margin-bottom:26px;max-width:660px;line-height:1.65;}
 
-  /* Level list */
+  /* level list */
   .level-row{
-    display:grid;grid-template-columns:64px 1fr auto auto;gap:16px;align-items:center;
-    background:var(--card);border:1px solid var(--line);border-radius:10px;
-    padding:14px 18px;margin-bottom:10px;cursor:pointer;transition:border-color .15s, transform .1s;
+    position:relative;overflow:hidden;
+    display:grid;grid-template-columns:60px 1fr auto;gap:18px;align-items:center;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 18px;margin-bottom:10px;cursor:pointer;transition:border-color .15s, transform .12s;
   }
-  .level-row:hover{border-color:var(--line2);transform:translateX(2px);}
+  .level-row:hover{border-color:var(--line2);transform:translateX(3px);}
+  .level-row .banner-bg{
+    position:absolute;inset:0;background-size:cover;background-position:center;
+    opacity:0.14;mask-image:linear-gradient(to right, transparent, black 55%);
+  }
+  .level-row > *{position:relative;z-index:1;}
   .rank-badge{
-    font-family:var(--font-d);font-weight:700;font-size:22px;
-    width:56px;height:56px;display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-d);font-weight:700;font-size:21px;
+    width:52px;height:52px;display:flex;align-items:center;justify-content:center;
     clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    background:var(--flame-dim);color:var(--flame2);
+    background:var(--flame-dim);color:var(--flame2);flex-shrink:0;
   }
   .rank-badge.top1{background:linear-gradient(160deg,#4a2a00,#2a1500);color:var(--gold);}
-  .rank-badge.ext{background:#1e1a30;color:var(--ext);}
+  .rank-badge.ext{background:var(--ext-dim);color:var(--ext);}
   .level-info .lvl-name{font-family:var(--font-d);font-weight:700;font-size:19px;}
   .level-info .lvl-meta{color:var(--sub);font-size:12.5px;margin-top:2px;font-family:var(--font-m);}
-  .lvl-points{text-align:right;font-family:var(--font-m);}
-  .lvl-points .pts{color:var(--flame2);font-weight:700;font-size:16px;}
+  .lvl-points{text-align:right;font-family:var(--font-m);white-space:nowrap;}
+  .lvl-points .pts{color:var(--flame2);font-weight:700;font-size:17px;}
   .lvl-points .pts-label{color:var(--mut);font-size:10px;letter-spacing:1px;text-transform:uppercase;}
-  .lvl-verifier{text-align:right;font-size:12.5px;color:var(--sub);min-width:100px;}
-  .lvl-verifier .vlabel{font-size:10px;color:var(--mut);letter-spacing:1px;text-transform:uppercase;}
 
-  /* Stats table */
+  /* stats */
   .stat-row{
-    display:grid;grid-template-columns:40px 1fr auto;gap:16px;align-items:center;
+    display:grid;grid-template-columns:44px 1fr auto;gap:16px;align-items:center;
     background:var(--card);border:1px solid var(--line);border-radius:10px;
-    padding:12px 18px;margin-bottom:8px;
+    padding:13px 18px;margin-bottom:8px;
   }
   .stat-rank{font-family:var(--font-m);color:var(--mut);font-size:15px;}
   .stat-name{font-family:var(--font-d);font-weight:700;font-size:17px;}
   .stat-pts{font-family:var(--font-m);color:var(--flame2);font-weight:700;font-size:16px;text-align:right;}
+  .stat-row.rank1{border-color:#4a3818;}
   .stat-row.rank1 .stat-name{color:var(--gold);}
 
-  /* Cards / forms */
-  .card{
-    background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;
-    max-width:520px;
-  }
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;max-width:540px;}
   .field{margin-bottom:16px;}
-  .field label{display:block;font-size:12.5px;color:var(--sub);margin-bottom:6px;font-family:var(--font-m);letter-spacing:0.5px;text-transform:uppercase;}
+  .field label{display:block;font-size:12px;color:var(--sub);margin-bottom:6px;font-family:var(--font-m);letter-spacing:0.5px;text-transform:uppercase;}
   .field input, .field select, .field textarea{
     width:100%;background:var(--bg2);border:1px solid var(--line2);color:var(--text);
-    padding:10px 12px;border-radius:7px;font-family:var(--font-b);font-size:14px;
+    padding:10px 12px;border-radius:8px;font-family:var(--font-b);font-size:14px;
   }
   .field input:focus, .field select:focus, .field textarea:focus{outline:none;border-color:var(--flame);}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
   .btn{
-    font-family:var(--font-d);font-weight:700;font-size:15px;letter-spacing:0.5px;
-    background:var(--flame);color:#1a0800;border:none;padding:11px 22px;border-radius:7px;
+    font-family:var(--font-d);font-weight:700;font-size:15px;letter-spacing:0.4px;
+    background:var(--flame);color:#1a0700;border:none;padding:11px 22px;border-radius:8px;
     cursor:pointer;transition:filter .15s;
   }
   .btn:hover{filter:brightness(1.12);}
   .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line2);}
-  .btn.small{padding:6px 12px;font-size:13px;}
+  .btn.small{padding:6px 13px;font-size:13px;}
   .btn.danger{background:var(--bad);color:#2a0508;}
   .btn.good{background:var(--good);color:#052a15;}
+  .btn.wide{width:100%;text-align:center;}
 
-  .msg{padding:12px 14px;border-radius:8px;font-size:13.5px;margin-bottom:16px;font-family:var(--font-m);}
-  .msg.ok{background:#0d2318;border:1px solid #1e4a30;color:var(--good);}
-  .msg.err{background:#2a0d10;border:1px solid #5a1a20;color:var(--bad);}
+  .msg{padding:12px 14px;border-radius:9px;font-size:13.5px;margin-bottom:16px;line-height:1.5;}
+  .msg.ok{background:var(--good-dim);border:1px solid #1e4a30;color:var(--good);}
+  .msg.err{background:var(--bad-dim);border:1px solid #5a1a20;color:var(--bad);}
+  .msg.info{background:var(--bg2);border:1px solid var(--line2);color:var(--sub);}
 
-  .json-box{
-    background:var(--bg2);border:1px solid var(--line2);border-radius:8px;padding:14px;
-    font-family:var(--font-m);font-size:12px;color:var(--sub);white-space:pre-wrap;word-break:break-all;
-    max-height:260px;overflow:auto;margin-top:12px;
-  }
-
-  /* Mod panel */
-  .queue-item{
-    background:var(--card2);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:10px;
-  }
+  .queue-item{background:var(--card2);border:1px solid var(--line);border-radius:9px;padding:14px 16px;margin-bottom:10px;}
   .queue-item .qtitle{font-family:var(--font-d);font-weight:700;font-size:16px;}
   .queue-item .qmeta{font-size:12.5px;color:var(--sub);font-family:var(--font-m);margin-top:4px;}
-  .queue-actions{display:flex;gap:8px;margin-top:10px;}
+  .queue-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
 
-  .tag{display:inline-block;font-size:10.5px;font-family:var(--font-m);padding:2px 8px;border-radius:10px;letter-spacing:0.5px;}
-  .tag.pct100{background:#0d2318;color:var(--good);}
-  .tag.pcthalf{background:#2a1c05;color:var(--half);}
-
-  .empty-state{color:var(--mut);font-family:var(--font-m);font-size:13.5px;padding:40px 0;text-align:center;}
+  .empty-state{color:var(--mut);font-family:var(--font-m);font-size:13.5px;padding:36px 0;text-align:center;}
 
   .modal-bg{
-    position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;
+    position:fixed;inset:0;background:rgba(6,5,8,0.78);z-index:100;
     display:flex;align-items:center;justify-content:center;padding:20px;
+    animation:fadein .12s ease;
   }
-  .modal{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:26px;max-width:440px;width:100%;}
+  @keyframes fadein{from{opacity:0}to{opacity:1}}
+  .modal{background:var(--card);border:1px solid var(--line2);border-radius:14px;max-width:560px;width:100%;max-height:88vh;overflow:auto;}
+  .modal-banner{
+    width:100%;aspect-ratio:16/6;background:linear-gradient(160deg,var(--flame-dim),var(--bg2));
+    background-size:cover;background-position:center;border-radius:14px 14px 0 0;
+    display:flex;align-items:flex-end;padding:20px;position:relative;
+  }
+  .modal-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.75), transparent 60%);border-radius:14px 14px 0 0;}
+  .modal-banner .mb-content{position:relative;z-index:1;}
+  .modal-body{padding:22px 26px 26px;}
+  .modal-close{
+    position:absolute;top:14px;right:14px;z-index:2;
+    background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.15);color:#fff;
+    width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .video-embed{width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000;margin:16px 0;border:1px solid var(--line2);}
+  .video-embed iframe{width:100%;height:100%;border:0;}
+  .video-embed a.fallback{display:flex;align-items:center;justify-content:center;height:100%;color:var(--flame2);font-family:var(--font-m);font-size:13px;}
+
+  .record-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  .record-row:last-child{border-bottom:none;}
+  .tag{display:inline-block;font-size:10.5px;font-family:var(--font-m);padding:2px 9px;border-radius:10px;letter-spacing:0.4px;}
+  .tag.pct100{background:var(--good-dim);color:var(--good);}
+  .tag.pcthalf{background:var(--half-dim);color:var(--half);}
+  .tag.ext{background:var(--ext-dim);color:var(--ext);}
 
   .list-tabs{display:flex;gap:8px;margin-bottom:24px;}
   .list-tabs button{
-    font-family:var(--font-m);font-size:12.5px;letter-spacing:0.5px;
+    font-family:var(--font-m);font-size:12.5px;letter-spacing:0.4px;
     background:var(--card2);border:1px solid var(--line);color:var(--sub);
-    padding:8px 14px;border-radius:6px;cursor:pointer;
+    padding:8px 15px;border-radius:7px;cursor:pointer;
   }
   .list-tabs button.active{color:var(--flame2);border-color:#5a2e18;background:var(--flame-dim);}
 
-  footer{border-top:1px solid var(--line);padding:24px;text-align:center;color:var(--mut);font-size:12px;font-family:var(--font-m);}
+  .edit-panel{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:12px;}
+  .edit-panel-head{display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+  .edit-panel-head .ephname{font-family:var(--font-d);font-weight:700;font-size:16.5px;}
+  .edit-panel-body{margin-top:14px;display:none;}
+  .edit-panel-body.open{display:block;}
+  .banner-preview{
+    width:100%;height:90px;border-radius:8px;background-size:cover;background-position:center;
+    background-color:var(--bg2);border:1px solid var(--line2);margin-bottom:8px;
+  }
+
+  footer{border-top:1px solid var(--line);padding:26px;text-align:center;color:var(--mut);font-size:12px;font-family:var(--font-m);}
 
   @media(max-width:640px){
-    .level-row{grid-template-columns:44px 1fr;grid-template-areas:"badge info" "pts pts";}
-    .rank-badge{width:44px;height:44px;font-size:17px;grid-area:badge;}
-    .level-info{grid-area:info;}
-    .lvl-points, .lvl-verifier{display:none;}
-    .section-title{font-size:26px;}
+    .level-row{grid-template-columns:44px 1fr auto;padding:12px 14px;}
+    .rank-badge{width:42px;height:42px;font-size:16px;}
+    .section-title{font-size:27px;}
+    .field-row{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -195,7 +223,7 @@
 
 <header>
   <div class="header-inner">
-    <div class="logo"><span class="spark">&#9670;</span> FLAMELIST</div>
+    <div class="logo"><span class="mark"></span>FLAMELIST</div>
     <nav id="nav">
       <button data-view="list" class="active">Demonlist</button>
       <button data-view="stats">Stats</button>
@@ -209,30 +237,22 @@
 
 <main id="app"></main>
 
-<footer>flamelist &mdash; data lives in data.json, edited by mods on GitHub</footer>
+<footer>flamelist &mdash; list data lives in data.json on GitHub</footer>
 
 <script>
 /* ============================================================
-   DATA LAYER
-   data.json shape:
-   {
-     "mods": ["modpassword1","modpassword2"],
-     "levels": [
-       {id, name, creator, verifier, videoUrl, rank, minPercent}
-     ],
-     "records": [
-       {id, levelId, player, percent, videoUrl, status: "pending"|"approved"|"rejected"}
-     ],
-     "levelSubmissions": [
-       {id, name, creator, verifier, videoUrl, suggestedTier, submitter, status}
-     ]
-   }
+   CONFIG — edit these once you have your Google Form links
    ============================================================ */
+const RECORD_FORM_URL = "PASTE_RECORD_SUBMISSION_GOOGLE_FORM_LINK_HERE";
+const LEVEL_FORM_URL  = "PASTE_LEVEL_SUBMISSION_GOOGLE_FORM_LINK_HERE";
 
+/* ============================================================
+   DATA
+   ============================================================ */
 let DATA = null;
 let currentView = 'list';
 let isMod = sessionStorage.getItem('flamelist_mod') === '1';
-let listTab = 'main'; // main | extended
+let listTab = 'main';
 
 const POINTS_RANK1 = 500;
 const POINTS_RANK150 = 25;
@@ -241,16 +261,12 @@ const POINTS_EXTENDED = 5;
 function pointsForRank(rank){
   if(rank > 150) return POINTS_EXTENDED;
   if(rank <= 1) return POINTS_RANK1;
-  // linear interpolation rank1->500 ... rank150->25
   const t = (rank - 1) / (150 - 1);
   return Math.round(POINTS_RANK1 + t * (POINTS_RANK150 - POINTS_RANK1));
 }
-
 function pointsForRecord(rank, percent){
   const base = pointsForRank(rank);
-  if(rank > 150){
-    return percent >= 100 ? base : 0;
-  }
+  if(rank > 150) return percent >= 100 ? base : 0;
   if(percent >= 100) return base;
   if(percent >= 66) return Math.round(base / 2);
   return 0;
@@ -265,29 +281,44 @@ async function loadData(){
     DATA = {
       mods: ["changeme123"],
       levels: [
-        {id:"l1", name:"Tartarus", creator:"Riot", verifier:"Zoink", videoUrl:"", rank:1, minPercent:100},
-        {id:"l2", name:"Acheron", creator:"Riot", verifier:"Riot", videoUrl:"", rank:2, minPercent:100},
-        {id:"l3", name:"Slaughterhouse", creator:"KrmaL", verifier:"Slypp", videoUrl:"", rank:151, minPercent:100}
+        {id:"l1", rank:1, name:"Tartarus", creator:"Riot", verifier:"Zoink", videoUrl:"", banner:"", minPercent:100},
+        {id:"l2", rank:2, name:"Acheron", creator:"Riot", verifier:"Riot", videoUrl:"", banner:"", minPercent:100},
+        {id:"l3", rank:151, name:"Slaughterhouse", creator:"KrmaL", verifier:"Slypp", videoUrl:"", banner:"", minPercent:100}
       ],
       records: [],
       levelSubmissions: []
     };
   }
+  DATA.records = DATA.records || [];
+  DATA.levelSubmissions = DATA.levelSubmissions || [];
   render();
 }
 
-function saveNote(){
-  return `Static site: this device's browser now holds the change locally in memory only.
-Copy the JSON below into data.json in your GitHub repo and commit, so everyone sees it.`;
+/* ============================================================
+   VIDEO EMBED HELPER
+   ============================================================ */
+function videoEmbedHtml(url){
+  if(!url) return `<div class="video-embed"><a class="fallback">No video linked</a></div>`;
+  let embedSrc = null;
+  const yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]{6,})/);
+  if(yt){
+    embedSrc = `https://www.youtube.com/embed/${yt[1]}`;
+  }
+  if(embedSrc){
+    return `<div class="video-embed"><iframe src="${esc(embedSrc)}" allowfullscreen allow="autoplay; encrypted-media"></iframe></div>`;
+  }
+  return `<div class="video-embed"><a class="fallback" href="${esc(url)}" target="_blank">Watch video &rarr;</a></div>`;
 }
 
-
+/* ============================================================
+   RENDER ROOT
+   ============================================================ */
 function render(){
   document.querySelectorAll('#nav button').forEach(b=>{
     b.classList.toggle('active', b.dataset.view === currentView);
   });
   document.getElementById('modStatus').innerHTML = isMod
-    ? `<span class="mod-badge">MOD MODE &middot; <a href="#" onclick="logoutMod();return false;" style="color:var(--bad)">exit</a></span>`
+    ? `<span class="mod-pill">MOD MODE<a href="#" onclick="logoutMod();return false;">exit</a></span>`
     : '';
   document.getElementById('modNavBtn').textContent = isMod ? 'Mod panel' : 'Mod login';
 
@@ -301,7 +332,9 @@ function render(){
   attachHandlers();
 }
 
-
+/* ============================================================
+   DEMONLIST VIEW
+   ============================================================ */
 function renderList(){
   const sorted = [...DATA.levels].sort((a,b)=>a.rank-b.rank);
   const main = sorted.filter(l=>l.rank<=150);
@@ -313,25 +346,25 @@ function renderList(){
     const badgeClass = l.rank>150 ? 'ext' : (l.rank===1 ? 'top1' : '');
     return `
     <div class="level-row" onclick="openLevel('${l.id}')">
+      ${l.banner ? `<div class="banner-bg" style="background-image:url('${esc(l.banner)}')"></div>` : ''}
       <div class="rank-badge ${badgeClass}">#${l.rank}</div>
       <div class="level-info">
         <div class="lvl-name">${esc(l.name)}</div>
-        <div class="lvl-meta">by ${esc(l.creator)} &middot; verified by ${esc(l.verifier)} ${l.rank<=150 ? '&middot; min '+l.minPercent+'%' : ''}</div>
+        <div class="lvl-meta">by ${esc(l.creator)} &middot; verified by ${esc(l.verifier)}${l.rank<=150 ? ' &middot; min '+l.minPercent+'%' : ''}</div>
       </div>
       <div class="lvl-points">
         <div class="pts">${pts}</div>
         <div class="pts-label">points</div>
       </div>
-      <div class="lvl-verifier"><div class="vlabel">verifier</div>${esc(l.verifier)}</div>
     </div>`;
   }).join('');
 
   return `
     <div class="section-title">The demonlist</div>
-    <div class="section-sub">Ranked by difficulty. #1 is worth ${POINTS_RANK1} points, #150 is worth ${POINTS_RANK150}. Beyond #150 every level is worth a flat ${POINTS_EXTENDED} &mdash; still ranked, just outside the points curve. On the main list, 100% earns full points, 66&ndash;99% earns half, and under 66% earns nothing.</div>
+    <div class="section-sub">Ranked by difficulty. #1 is worth ${POINTS_RANK1} points, #150 is worth ${POINTS_RANK150}, scaling between. Past #150 every level is worth a flat ${POINTS_EXTENDED} point &mdash; still ranked, just outside the points curve. On the main list, 100% earns full points, 66&ndash;99% earns half, under 66% earns nothing.</div>
     <div class="list-tabs">
-      <button data-tab="main" class="${listTab==='main'?'active':''}">Main list (1&ndash;150)</button>
-      <button data-tab="ext" class="${listTab==='ext'?'active':''}">Extended list (151+)</button>
+      <button data-tab="main" class="${listTab==='main'?'active':''}">Main list &middot; 1&ndash;150</button>
+      <button data-tab="ext" class="${listTab==='ext'?'active':''}">Extended list &middot; 151+</button>
     </div>
     ${shown.length ? rows : `<div class="empty-state">No levels here yet.</div>`}
   `;
@@ -343,32 +376,47 @@ function openLevel(id){
   const records = DATA.records.filter(r=>r.levelId===id && r.status==='approved').sort((a,b)=>b.percent-a.percent);
   const rows = records.map(r=>{
     const pts = pointsForRecord(l.rank, r.percent);
-    return `<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;">
-      <span>${esc(r.player)} ${r.videoUrl ? `<a href="${esc(r.videoUrl)}" target="_blank" style="color:var(--flame2);font-size:12px;margin-left:6px;">watch</a>` : ''}</span>
-      <span style="font-family:var(--font-m);color:var(--sub);">${r.percent}% &middot; <span style="color:var(--flame2)">${pts}pt</span></span>
+    const pctTag = r.percent>=100 ? `<span class="tag pct100">100%</span>` : `<span class="tag pcthalf">${r.percent}%</span>`;
+    return `<div class="record-row">
+      <span>${esc(r.player)}</span>
+      <span style="display:flex;align-items:center;gap:10px;">
+        ${pctTag}
+        <span style="font-family:var(--font-m);color:var(--flame2);">${pts}pt</span>
+        ${r.videoUrl ? `<a href="${esc(r.videoUrl)}" target="_blank" style="color:var(--sub);font-size:12px;">watch</a>` : ''}
+      </span>
     </div>`;
-  }).join('') || `<div class="empty-state">No approved records yet.</div>`;
+  }).join('') || `<div class="empty-state" style="padding:20px 0;">No approved records yet.</div>`;
 
   showModal(`
-    <div class="section-title" style="font-size:24px;">#${l.rank} &mdash; ${esc(l.name)}</div>
-    <div class="section-sub" style="margin-bottom:16px;">by ${esc(l.creator)} &middot; verified by ${esc(l.verifier)} ${l.videoUrl ? `&middot; <a href="${esc(l.videoUrl)}" target="_blank" style="color:var(--flame2)">verification</a>` : ''}</div>
-    <div>${rows}</div>
-    <div style="margin-top:18px;"><button class="btn ghost small" onclick="closeModal()">Close</button></div>
+    <div class="modal-banner" style="${l.banner ? `background-image:url('${esc(l.banner)}')` : ''}">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="mb-content">
+        <div style="font-family:var(--font-m);color:${l.rank>150?'var(--ext)':'var(--flame2)'};font-size:13px;letter-spacing:1px;">#${l.rank}</div>
+        <div style="font-family:var(--font-d);font-weight:700;font-size:28px;">${esc(l.name)}</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="section-sub" style="margin-bottom:4px;">by ${esc(l.creator)} &middot; verified by ${esc(l.verifier)}</div>
+      <div style="font-family:var(--font-m);color:var(--flame2);font-size:14px;margin-bottom:6px;">${pointsForRank(l.rank)} points ${l.rank<=150 ? `&middot; min ${l.minPercent}%` : ''}</div>
+      ${videoEmbedHtml(l.videoUrl)}
+      <div style="font-family:var(--font-d);font-weight:700;font-size:17px;margin:18px 0 4px;">Records</div>
+      ${rows}
+    </div>
   `);
 }
 
-
+/* ============================================================
+   STATS VIEW
+   ============================================================ */
 function renderStats(){
   const playerTotals = {};
   DATA.records.filter(r=>r.status==='approved').forEach(r=>{
     const lvl = DATA.levels.find(l=>l.id===r.levelId);
     if(!lvl) return;
     const pts = pointsForRecord(lvl.rank, r.percent);
-    if(!playerTotals[r.player]) playerTotals[r.player] = 0;
-    playerTotals[r.player] += pts;
+    playerTotals[r.player] = (playerTotals[r.player]||0) + pts;
   });
   const ranked = Object.entries(playerTotals).sort((a,b)=>b[1]-a[1]);
-
   const rows = ranked.map(([name, pts], i)=>`
     <div class="stat-row ${i===0?'rank1':''}">
       <div class="stat-rank">#${i+1}</div>
@@ -384,95 +432,33 @@ function renderStats(){
 }
 
 /* ============================================================
-   SUBMIT RECORD VIEW
+   SUBMIT VIEWS — send out to Google Forms
    ============================================================ */
 function renderSubmitRecord(){
-  const options = [...DATA.levels].sort((a,b)=>a.rank-b.rank)
-    .map(l=>`<option value="${l.id}">#${l.rank} &mdash; ${esc(l.name)}</option>`).join('');
+  const ready = RECORD_FORM_URL && !RECORD_FORM_URL.startsWith('PASTE_');
   return `
     <div class="section-title">Submit a record</div>
-    <div class="section-sub">Records go to the mod queue for approval. You'll need to give mods a way to see this submission &mdash; see the note after you submit.</div>
+    <div class="section-sub">Records are reviewed by mods before they count toward points.</div>
     <div class="card">
-      <div class="field"><label>Level</label><select id="rLevel">${options}</select></div>
-      <div class="field"><label>Your name</label><input id="rPlayer" placeholder="Player name"></div>
-      <div class="field"><label>Percent (66&ndash;100)</label><input id="rPercent" type="number" min="1" max="100" value="100"></div>
-      <div class="field"><label>Video URL</label><input id="rVideo" placeholder="https://youtube.com/..."></div>
-      <button class="btn" onclick="submitRecord()">Submit record</button>
-      <div id="rOut"></div>
+      ${ready
+        ? `<a href="${esc(RECORD_FORM_URL)}" target="_blank"><button class="btn wide">Open the record submission form</button></a>`
+        : `<div class="msg info">The record submission form link hasn't been set yet. Once it's added to the site config, this button will open it.</div>`
+      }
     </div>
   `;
 }
 
-function submitRecord(){
-  const levelId = document.getElementById('rLevel').value;
-  const player = document.getElementById('rPlayer').value.trim();
-  const percent = parseInt(document.getElementById('rPercent').value, 10);
-  const videoUrl = document.getElementById('rVideo').value.trim();
-  const out = document.getElementById('rOut');
-
-  if(!player || !percent || percent < 1 || percent > 100){
-    out.innerHTML = `<div class="msg err">Fill in a player name and a percent between 1 and 100.</div>`;
-    return;
-  }
-
-  const record = {
-    id: 'rec_' + Math.random().toString(36).slice(2,9),
-    levelId, player, percent, videoUrl, status: 'pending'
-  };
-  DATA.records.push(record);
-  out.innerHTML = `
-    <div class="msg ok">Added to this session's local queue. To make it visible to mods, send them this JSON entry (or open a GitHub issue with it) so they can add it to data.json.</div>
-    <div class="json-box">${esc(JSON.stringify(record, null, 2))}</div>
-  `;
-}
-
-/* ============================================================
-   SUBMIT LEVEL VIEW
-   ============================================================ */
 function renderSubmitLevel(){
+  const ready = LEVEL_FORM_URL && !LEVEL_FORM_URL.startsWith('PASTE_');
   return `
     <div class="section-title">Submit a level</div>
-    <div class="section-sub">Suggest a level and a rough placement. Mods will slot it into the list where they think it belongs.</div>
+    <div class="section-sub">Suggest a level for the list. Mods decide where it lands.</div>
     <div class="card">
-      <div class="field"><label>Level name</label><input id="lName"></div>
-      <div class="field"><label>Creator</label><input id="lCreator"></div>
-      <div class="field"><label>Verifier</label><input id="lVerifier"></div>
-      <div class="field"><label>Verification video</label><input id="lVideo" placeholder="https://youtube.com/..."></div>
-      <div class="field"><label>Suggested tier</label>
-        <select id="lTier">
-          <option value="main">Main list (1&ndash;150)</option>
-          <option value="ext">Extended list (151+)</option>
-        </select>
-      </div>
-      <div class="field"><label>Your name</label><input id="lSubmitter"></div>
-      <button class="btn" onclick="submitLevel()">Submit level</button>
-      <div id="lOut"></div>
+      ${ready
+        ? `<a href="${esc(LEVEL_FORM_URL)}" target="_blank"><button class="btn wide">Open the level submission form</button></a>`
+        : `<div class="msg info">The level submission form link hasn't been set yet. Once it's added to the site config, this button will open it.</div>`
+      }
     </div>
-  `;
-}
-
-function submitLevel(){
-  const name = document.getElementById('lName').value.trim();
-  const creator = document.getElementById('lCreator').value.trim();
-  const verifier = document.getElementById('lVerifier').value.trim();
-  const videoUrl = document.getElementById('lVideo').value.trim();
-  const suggestedTier = document.getElementById('lTier').value;
-  const submitter = document.getElementById('lSubmitter').value.trim();
-  const out = document.getElementById('lOut');
-
-  if(!name || !creator || !verifier){
-    out.innerHTML = `<div class="msg err">Fill in at least the level name, creator, and verifier.</div>`;
-    return;
-  }
-
-  const sub = {
-    id: 'lvlsub_' + Math.random().toString(36).slice(2,9),
-    name, creator, verifier, videoUrl, suggestedTier, submitter, status: 'pending'
-  };
-  DATA.levelSubmissions.push(sub);
-  out.innerHTML = `
-    <div class="msg ok">Added to this session's local queue. Send mods this JSON so they can add it to data.json.</div>
-    <div class="json-box">${esc(JSON.stringify(sub, null, 2))}</div>
   `;
 }
 
@@ -486,11 +472,10 @@ function renderModLogin(){
     <div class="card">
       <div class="field"><label>Password</label><input id="modPw" type="password"></div>
       <button class="btn" onclick="tryModLogin()">Log in</button>
-      <div id="modLoginOut"></div>
+      <div id="modLoginOut" style="margin-top:14px;"></div>
     </div>
   `;
 }
-
 function tryModLogin(){
   const pw = document.getElementById('modPw').value;
   const out = document.getElementById('modLoginOut');
@@ -503,7 +488,6 @@ function tryModLogin(){
     out.innerHTML = `<div class="msg err">That password isn't in the mod list.</div>`;
   }
 }
-
 function logoutMod(){
   isMod = false;
   sessionStorage.removeItem('flamelist_mod');
@@ -512,121 +496,142 @@ function logoutMod(){
 }
 
 /* ============================================================
-   MOD PANEL
+   MOD PANEL — edit everything, reorder, banners, export
    ============================================================ */
 function renderModPanel(){
-  const pendingRecords = DATA.records.filter(r=>r.status==='pending');
-  const pendingLevels = DATA.levelSubmissions.filter(s=>s.status==='pending');
   const sorted = [...DATA.levels].sort((a,b)=>a.rank-b.rank);
 
-  const recRows = pendingRecords.map(r=>{
-    const lvl = DATA.levels.find(l=>l.id===r.levelId);
-    return `
-    <div class="queue-item">
-      <div class="qtitle">${esc(r.player)} &mdash; ${lvl ? esc(lvl.name) : 'unknown level'}</div>
-      <div class="qmeta">${r.percent}% ${r.videoUrl ? `&middot; <a href="${esc(r.videoUrl)}" target="_blank" style="color:var(--flame2)">video</a>` : ''}</div>
-      <div class="queue-actions">
-        <button class="btn small good" onclick="approveRecord('${r.id}')">Approve</button>
-        <button class="btn small danger" onclick="rejectRecord('${r.id}')">Reject</button>
+  const editRows = sorted.map(l=>`
+    <div class="edit-panel">
+      <div class="edit-panel-head" onclick="toggleEdit('${l.id}')">
+        <div class="ephname">#${l.rank} &mdash; ${esc(l.name)}</div>
+        <div style="color:var(--sub);font-family:var(--font-m);font-size:12px;">edit &darr;</div>
       </div>
-    </div>`;
-  }).join('') || `<div class="empty-state">No pending records.</div>`;
-
-  const lvlRows = pendingLevels.map(s=>`
-    <div class="queue-item">
-      <div class="qtitle">${esc(s.name)} <span class="tag pcthalf">${s.suggestedTier === 'main' ? 'main list' : 'extended'}</span></div>
-      <div class="qmeta">by ${esc(s.creator)} &middot; verified by ${esc(s.verifier)} ${s.videoUrl ? `&middot; <a href="${esc(s.videoUrl)}" target="_blank" style="color:var(--flame2)">video</a>` : ''} &middot; submitted by ${esc(s.submitter||'anon')}</div>
-      <div class="field" style="margin-top:10px;max-width:160px;">
-        <label>Insert at rank</label>
-        <input type="number" min="1" id="rankfor_${s.id}" value="${s.suggestedTier==='main' ? 150 : (Math.max(151, DATA.levels.length+1))}">
+      <div class="edit-panel-body" id="ep_${l.id}">
+        <div class="banner-preview" id="bp_${l.id}" style="${l.banner?`background-image:url('${esc(l.banner)}')`:''}"></div>
+        <div class="field-row">
+          <div class="field"><label>Name</label><input id="f_name_${l.id}" value="${esc(l.name)}"></div>
+          <div class="field"><label>Rank</label><input type="number" id="f_rank_${l.id}" value="${l.rank}"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Creator</label><input id="f_creator_${l.id}" value="${esc(l.creator)}"></div>
+          <div class="field"><label>Verifier</label><input id="f_verifier_${l.id}" value="${esc(l.verifier)}"></div>
+        </div>
+        <div class="field"><label>Video URL</label><input id="f_video_${l.id}" value="${esc(l.videoUrl||'')}"></div>
+        <div class="field-row">
+          <div class="field"><label>Min % (main list only)</label><input type="number" id="f_minpct_${l.id}" value="${l.minPercent||100}"></div>
+          <div class="field"><label>Banner image URL</label><input id="f_banner_${l.id}" value="${esc(l.banner||'')}" placeholder="https:// or /banners/name.png"></div>
+        </div>
+        <div class="field"><label>Or upload a banner image (converts to a link you paste above)</label>
+          <input type="file" accept="image/*" onchange="handleBannerUpload(event,'${l.id}')">
+          <div style="font-size:11.5px;color:var(--mut);margin-top:6px;font-family:var(--font-m);">This site can't upload files to GitHub by itself. Uploading here converts the image into a data link and fills the field above &mdash; for a real hosted image, upload it into a /banners folder in your repo instead and paste that path.</div>
+        </div>
+        <div class="queue-actions">
+          <button class="btn small good" onclick="saveLevelEdit('${l.id}')">Save changes</button>
+          <button class="btn small danger" onclick="deleteLevel('${l.id}')">Remove level</button>
+        </div>
       </div>
-      <div class="queue-actions">
-        <button class="btn small good" onclick="approveLevel('${s.id}')">Add to list</button>
-        <button class="btn small danger" onclick="rejectLevel('${s.id}')">Reject</button>
-      </div>
-    </div>`).join('') || `<div class="empty-state">No pending level submissions.</div>`;
-
-  const listRows = sorted.map(l=>`
-    <div class="queue-item" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
-      <div>
-        <div class="qtitle">#${l.rank} ${esc(l.name)}</div>
-        <div class="qmeta">${esc(l.creator)}</div>
-      </div>
-      <div style="display:flex;gap:6px;align-items:center;">
-        <input type="number" style="width:70px;" id="newrank_${l.id}" value="${l.rank}">
-        <button class="btn small" onclick="changeRank('${l.id}')">Set</button>
-        <button class="btn small danger" onclick="deleteLevel('${l.id}')">Remove</button>
-      </div>
-    </div>`).join('');
+    </div>
+  `).join('') || `<div class="empty-state">No levels yet.</div>`;
 
   return `
     <div class="section-title">Mod panel</div>
-    <div class="section-sub">Approve records, approve level submissions, and reorder the list. Every action here only changes this browser session &mdash; use "Export data.json" below to get the file to commit.</div>
+    <div class="section-sub">Edit any level's info, change its rank, or remove it. Changes only apply in this browser tab until you export and commit data.json.</div>
 
-    <div style="margin-bottom:32px;">
+    <div style="margin-bottom:28px;display:flex;gap:10px;flex-wrap:wrap;">
       <button class="btn" onclick="exportData()">Export data.json</button>
+      <button class="btn ghost" onclick="openAddLevel()">Add a new level</button>
     </div>
 
-    <h3 style="font-family:var(--font-d);font-size:20px;margin-bottom:12px;">Pending records (${pendingRecords.length})</h3>
-    ${recRows}
-
-    <h3 style="font-family:var(--font-d);font-size:20px;margin:28px 0 12px;">Pending level submissions (${pendingLevels.length})</h3>
-    ${lvlRows}
-
-    <h3 style="font-family:var(--font-d);font-size:20px;margin:28px 0 12px;">Reorder / manage levels</h3>
-    ${listRows}
+    <h3 style="font-family:var(--font-d);font-size:20px;margin-bottom:14px;">Levels (${sorted.length})</h3>
+    ${editRows}
 
     <div id="modOut"></div>
   `;
 }
 
-function approveRecord(id){
-  const r = DATA.records.find(x=>x.id===id);
-  if(r) r.status='approved';
-  render(); currentView='mod'; render();
+function toggleEdit(id){
+  const el = document.getElementById('ep_'+id);
+  el.classList.toggle('open');
 }
-function rejectRecord(id){
-  const r = DATA.records.find(x=>x.id===id);
-  if(r) r.status='rejected';
+
+function handleBannerUpload(evt, id){
+  const file = evt.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    document.getElementById('f_banner_'+id).value = reader.result;
+    document.getElementById('bp_'+id).style.backgroundImage = `url('${reader.result}')`;
+  };
+  reader.readAsDataURL(file);
+}
+
+function saveLevelEdit(id){
+  const l = DATA.levels.find(x=>x.id===id);
+  if(!l) return;
+  const newRank = parseInt(document.getElementById('f_rank_'+id).value, 10);
+  const oldRank = l.rank;
+
+  l.name = document.getElementById('f_name_'+id).value.trim();
+  l.creator = document.getElementById('f_creator_'+id).value.trim();
+  l.verifier = document.getElementById('f_verifier_'+id).value.trim();
+  l.videoUrl = document.getElementById('f_video_'+id).value.trim();
+  l.minPercent = parseInt(document.getElementById('f_minpct_'+id).value, 10) || 100;
+  l.banner = document.getElementById('f_banner_'+id).value.trim();
+
+  if(newRank && newRank !== oldRank){
+    DATA.levels.forEach(o=>{
+      if(o.id===id) return;
+      if(newRank < oldRank && o.rank >= newRank && o.rank < oldRank) o.rank += 1;
+      if(newRank > oldRank && o.rank <= newRank && o.rank > oldRank) o.rank -= 1;
+    });
+    l.rank = newRank;
+  }
+  document.getElementById('modOut').innerHTML = `<div class="msg ok">Saved in this session. Export data.json when you're done making changes.</div>`;
   currentView='mod'; render();
 }
-function approveLevel(id){
-  const s = DATA.levelSubmissions.find(x=>x.id===id);
-  if(!s) return;
-  const rankInput = document.getElementById('rankfor_'+id);
-  const rank = parseInt(rankInput.value,10) || (DATA.levels.length+1);
-  // shift existing levels at/after this rank
+
+function deleteLevel(id){
+  DATA.levels = DATA.levels.filter(l=>l.id!==id);
+  currentView='mod'; render();
+}
+
+function openAddLevel(){
+  showModal(`
+    <div class="modal-body">
+      <div class="section-title" style="font-size:24px;">Add a level</div>
+      <div class="field"><label>Name</label><input id="new_name"></div>
+      <div class="field-row">
+        <div class="field"><label>Creator</label><input id="new_creator"></div>
+        <div class="field"><label>Verifier</label><input id="new_verifier"></div>
+      </div>
+      <div class="field"><label>Video URL</label><input id="new_video"></div>
+      <div class="field-row">
+        <div class="field"><label>Rank</label><input type="number" id="new_rank" value="151"></div>
+        <div class="field"><label>Min % (main list only)</label><input type="number" id="new_minpct" value="100"></div>
+      </div>
+      <div class="queue-actions">
+        <button class="btn good" onclick="confirmAddLevel()">Add level</button>
+        <button class="btn ghost" onclick="closeModal()">Cancel</button>
+      </div>
+    </div>
+  `);
+}
+function confirmAddLevel(){
+  const name = document.getElementById('new_name').value.trim();
+  const creator = document.getElementById('new_creator').value.trim();
+  const verifier = document.getElementById('new_verifier').value.trim();
+  const videoUrl = document.getElementById('new_video').value.trim();
+  const rank = parseInt(document.getElementById('new_rank').value,10) || (DATA.levels.length+1);
+  const minPercent = parseInt(document.getElementById('new_minpct').value,10) || 100;
+  if(!name || !creator || !verifier) return;
+
   DATA.levels.forEach(l=>{ if(l.rank >= rank) l.rank += 1; });
   DATA.levels.push({
     id: 'lvl_' + Math.random().toString(36).slice(2,9),
-    name: s.name, creator: s.creator, verifier: s.verifier, videoUrl: s.videoUrl,
-    rank, minPercent: rank<=150 ? 100 : 100
+    name, creator, verifier, videoUrl, rank, minPercent, banner: ""
   });
-  s.status = 'approved';
-  currentView='mod'; render();
-}
-function rejectLevel(id){
-  const s = DATA.levelSubmissions.find(x=>x.id===id);
-  if(s) s.status='rejected';
-  currentView='mod'; render();
-}
-function changeRank(id){
-  const l = DATA.levels.find(x=>x.id===id);
-  const input = document.getElementById('newrank_'+id);
-  const newRank = parseInt(input.value,10);
-  if(!l || !newRank || newRank < 1) return;
-  const oldRank = l.rank;
-  if(newRank === oldRank) return;
-  DATA.levels.forEach(o=>{
-    if(o.id===id) return;
-    if(newRank < oldRank && o.rank >= newRank && o.rank < oldRank) o.rank += 1;
-    if(newRank > oldRank && o.rank <= newRank && o.rank > oldRank) o.rank -= 1;
-  });
-  l.rank = newRank;
-  currentView='mod'; render();
-}
-function deleteLevel(id){
-  DATA.levels = DATA.levels.filter(l=>l.id!==id);
+  closeModal();
   currentView='mod'; render();
 }
 
@@ -658,7 +663,6 @@ function closeModal(){
 function esc(s){
   return String(s??'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
-
 function attachHandlers(){
   document.querySelectorAll('#nav button').forEach(b=>{
     b.onclick = ()=>{ currentView = b.dataset.view; render(); };
